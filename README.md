@@ -19,7 +19,19 @@ Tests were developed as part of a training project
 ## What's interesting?
 
 * Configuration with Owner library for local and remote run with Browserstack
+* Parametrized build
+* Custom Listener
 * Allure integration
 * Telegram notifications
+
+## How to run 
+
+Local run:
+```gradle clean test -Denv=local```
+
+Remote run:
+```gradle clean test -Denv=remote```
+And set up enviroment variables BROWSERSTACK_USER and BROWSERSTACK_KEY
+
 
 
