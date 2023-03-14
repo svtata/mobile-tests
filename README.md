@@ -40,3 +40,12 @@ You can run the readymade build [here.](https://jenkins.autotests.cloud/job/C16-
 
 ### [Allure report:](https://jenkins.autotests.cloud/job/C16-sw_tata_mobile_wiki_tests/4/allure/#suites)
 
+![This is an image](/media/Screenshot_2.png)
+
+### Telegram notification:
+
+![This is an image](/media/Screenshot_1.png)
+
+### Example video attachment:
+
+![video](media/video.gif)
