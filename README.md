@@ -31,6 +31,7 @@ Local run:
 
 Remote run:
 ```gradle clean test -Denv=remote```
+
 And set up enviroment variables BROWSERSTACK_USER and BROWSERSTACK_KEY
 
 
