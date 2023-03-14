@@ -38,5 +38,5 @@ You can run the readymade build [here.](https://jenkins.autotests.cloud/job/C16-
 
 ## Analyzing results :bookmark_tabs:
 
-### [Allure report:]([https://jenkins.autotests.cloud/job/C16-sw_tata_mobile_wiki_tests/3/allure/](https://jenkins.autotests.cloud/job/C16-sw_tata_mobile_wiki_tests/4/allure/#suites))
+### [Allure report:](https://jenkins.autotests.cloud/job/C16-sw_tata_mobile_wiki_tests/4/allure/#suites)
 
