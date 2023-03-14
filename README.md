@@ -34,5 +34,9 @@ Remote run:
 
 And set up enviroment variables BROWSERSTACK_USER and BROWSERSTACK_KEY
 
+You can run the readymade build [here.](https://jenkins.autotests.cloud/job/C16-sw_tata_mobile_wiki_tests/)
 
+## Analyzing results :bookmark_tabs:
+
+### [Allure report:](https://jenkins.autotests.cloud/job/C16-sw_tata_mobile_wiki_tests/4/allure/#suites)
 
