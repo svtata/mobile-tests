@@ -5,7 +5,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static helpers.Browserstack.getVideoUrl;
@@ -23,8 +22,17 @@ public class Attach {
 
     @Attachment(value = "{attachName}", type = "image/png")
     public static byte[] screenshotAs(String attachName) {
-        String base64Screenshot = ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BASE64);
-        return Base64.getEncoder().encode(base64Screenshot.getBytes());
+        return ((TakesScreenshot) getWebDriver()).getScreenshotAs(new OutputType<>() {
+            @Override
+            public byte[] convertFromBase64Png(String base64Png) {
+                String rfc4648Base64 = base64Png.replaceAll("\\r?\\n", "");
+                return OutputType.BYTES.convertFromBase64Png(rfc4648Base64);
+            }
+            @Override
+            public byte[] convertFromPngBytes(byte[] png) {
+                return OutputType.BYTES.convertFromPngBytes(png);
+            }
+        });
     }
 
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
@@ -32,8 +40,5 @@ public class Attach {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
                 + getVideoUrl(sessionId)
                 + "' type='video/mp4'></video></body></html>";
-    }
-
-    public static void video(String sessionId) {
     }
 }

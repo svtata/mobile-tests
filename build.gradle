@@ -26,11 +26,11 @@ allure {
 }
 
 dependencies {
-    testImplementation("org.seleniumhq.selenium:selenium-java") {
-        version {
-            strictly seleniumVersion
-        }
-    }
+//    testImplementation("org.seleniumhq.selenium:selenium-java") {
+//        version {
+//            strictly seleniumVersion
+//        }
+//    }
     testImplementation (
             "com.codeborne:selenide:6.11.2",
             "io.qameta.allure:allure-selenide:$allureVersion",

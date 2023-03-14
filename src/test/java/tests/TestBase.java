@@ -10,15 +10,17 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TestBase {
+    private static boolean videoEnabled = false;
+
     @BeforeAll
     static void beforeAll() {
         String property = System.getProperty("env", "local");
         if (property.equals("remote")) {
             Configuration.browser = BrowserstackDriver.class.getName();
+            videoEnabled = true;
         } else if (property.equals("local")) {
             Configuration.browser = MobileDriver.class.getName();
         } else {
@@ -35,10 +37,12 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
-//      String sessionId = sessionId().toString();
+        String sessionId = sessionId().toString();
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         closeWebDriver();
-//      Attach.video(sessionId);
+        if (videoEnabled) {
+            Attach.addVideo(sessionId);
+        }
     }
 }
